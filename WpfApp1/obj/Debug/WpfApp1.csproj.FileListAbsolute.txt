@@ -14,3 +14,12 @@ D:\Programming\DzSkillbox\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResou
 D:\Programming\DzSkillbox\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 D:\Programming\DzSkillbox\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
 D:\Programming\DzSkillbox\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\Newtonsoft.Json.dll
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\Telegram.Bot.dll
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\Newtonsoft.Json.xml
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\bin\Debug\Telegram.Bot.xml
+D:\Programming\DzSkillbox\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete

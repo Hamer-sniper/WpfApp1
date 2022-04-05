@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,42 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        TelegramMessageClient client;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            client = new TelegramMessageClient(this);
+
+            logList.ItemsSource = client.BotMessageLog;
+        }
+
+        private void btnMsgSendClick(object sender, RoutedEventArgs e)
+        {
+            client.SendMessage(txtMsgSend.Text, TargetSend.Text);
+            txtMsgSend.Text = String.Empty;
+        }
+
+        private void MenuItem_ListFiles_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer", Directory.GetCurrentDirectory());
+        }
+
+        private void MenuItem_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            var res = MessageBox.Show(
+                "Закрыть приложение?",
+                "Сообщение",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Information);
+            if (res == MessageBoxResult.Yes)
+                Application.Current.Shutdown();
+        }
+
+        private void MenuItem_SaveHistory_Click(object sender, RoutedEventArgs e)
+        {
+            client.SerializeToJson(client.BotMessageLog);
         }
     }
 }

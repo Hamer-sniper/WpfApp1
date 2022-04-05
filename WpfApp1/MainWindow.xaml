@@ -6,7 +6,63 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid ShowGridLines="false">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Height="25" VerticalAlignment="Top" Grid.RowSpan="1" Grid.ColumnSpan="2">
+            <MenuItem Header="Сообщения">
+                <MenuItem Header="Сохранить историю сообщений" Click="MenuItem_SaveHistory_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Файлы">
+                <MenuItem Header="Открыть папку с файлами" Click="MenuItem_ListFiles_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Выход" Click="MenuItem_Exit_Click" ></MenuItem>
+        </Menu>
+        <ListBox x:Name="logList" 
+                 Grid.Column="0"
+                 Grid.Row="1"
+                 Margin="5,10,5,5" 
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" Margin="5" BorderThickness="1" CornerRadius="10">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="{Binding FirstName}" Margin="0" FontSize="15"/>
+                            <TextBlock Text="{Binding Msg}" Margin="0" FontSize="20" MaxWidth="300" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Time}" Margin="10 0" FontSize="10" Foreground="Gray" TextAlignment="Right"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <GroupBox Grid.Column="1" 
+                  Grid.Row="1"
+                  FontSize="20"
+                  Header="Отправка сообщения" 
+                  Margin="5,10,5,5" 
+                  >
+            <StackPanel>
+                <TextBlock x:Name="TargetSend" 
+                           Text="{Binding ElementName=logList, Path=SelectedItem.Id}"
+                           Visibility="Collapsed"
+                           Margin="5"/>
+
+                <TextBlock x:Name="TargetSendName" 
+                           Text="{Binding ElementName=logList, Path=SelectedItem.FirstName}"                           
+                           Margin="5"/>                
+
+                <TextBox x:Name="txtMsgSend" FontSize="20" Margin="5"/>
+
+                <Button x:Name="btnMsgSend" FontSize="20" Content="Отправить" Margin="5" Click="btnMsgSendClick"/>
+                <Image x:Name="SendedPicture" Height="248" Width="374" Stretch="Fill"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>
